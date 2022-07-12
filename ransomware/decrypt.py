@@ -13,10 +13,9 @@ print(files)
 
 with open("thekey.key","rb") as key:
 	secretkey = key.read()
-print(secretkey)
-# for file in files:
-#	with open(file,"rb") as thefile:
-#		contents = thefile.read()
-#	contents_decrypted =Fernet(secretkey).decrypt(contents)
-#	with open(file,"wb") as thefile:
-#		thefile.write(contents_decrypted)
+for file in files:
+	with open(file,"rb") as thefile:
+		contents = thefile.read()
+	contents_decrypted =Fernet(secretkey).decrypt(contents)
+	with open(file,"wb") as thefile:
+		thefile.write(contents_decrypted)
